@@ -1,0 +1,24 @@
+---
+package:
+  virtualenvwrapper:
+    installed: true
+port:
+  tcp:80:
+    listening: true
+    ip:
+      - 0.0.0.0
+service:
+  virtualenvwrapper:
+    enabled: true
+    running: true
+user:
+  virtualenvwrapper:
+    exists: true
+    groups:
+      - virtualenvwrapper
+group:
+  virtualenvwrapper:
+    exists: true
+process:
+  virtualenvwrapper:
+    running: true
