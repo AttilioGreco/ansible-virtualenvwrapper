@@ -14,13 +14,49 @@ This role requires Ansible 2.4 or higher.
 
 The role defines most of its variables in `defaults/main.yml`:
 
+### venv_venv_home:
+default: /usr/venv
+### virtualenvwrapper_scrpit_path
+default: /usr/local/bin/virtualenvwrapper.sh
+### bashrc_path
+default: /root/.bashrc
+
 ## Example Playbook
 
 Run with default vars:
-
+```yaml
     - hosts: all
       roles:
         - { role: ansible-virtualenvwrapper }
+```
+
+## What use for prepare the virtualENV
+##### Example where install virtualenv and prepare a virtualenv for website1
+
+```yaml
+---
+- name: run the main role
+  hosts: all
+  become_method: su
+  roles:
+    - {role: ansible-virtualenvwrapper}
+    - role: cchurch.virtualenv
+      virtualenv_path: /usr/venv/website1
+      virtualenv_os_packages:
+        apt: [libjpeg-dev]
+        yum: [libjpeg-devel]
+      virtualenv_pre_packages:
+        - name: Django
+          version: 1.8.18
+        - Pillow
+      virtualenv_requirements:
+        - /var/www/mywebsite_path/requirements.txt
+      virtualenv_post_packages:
+        - name: PIL
+          state: absent
+
+```
+
 
 ## Testing
 

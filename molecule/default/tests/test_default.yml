@@ -1,24 +1,5 @@
 ---
-package:
-  virtualenvwrapper:
-    installed: true
-port:
-  tcp:80:
-    listening: true
-    ip:
-      - 0.0.0.0
-service:
-  virtualenvwrapper:
-    enabled: true
-    running: true
-user:
-  virtualenvwrapper:
+file:
+  /usr/venv:
+    filetype: directory
     exists: true
-    groups:
-      - virtualenvwrapper
-group:
-  virtualenvwrapper:
-    exists: true
-process:
-  virtualenvwrapper:
-    running: true

@@ -1,2 +1,5 @@
 ---
 # defaults vars
+venv_venv_home: /usr/venv
+virtualenvwrapper_scrpit_path: /usr/local/bin/virtualenvwrapper.sh
+bashrc_path: /root/.bashrc

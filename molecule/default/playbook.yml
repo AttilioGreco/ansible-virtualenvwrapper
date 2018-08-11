@@ -1,6 +1,20 @@
 ---
-
 - name: run the main role
   hosts: all
+  become_method: su
   roles:
     - {role: ansible-virtualenvwrapper}
+    - role: cchurch.virtualenv
+      virtualenv_path: /usr/venv/website1
+      virtualenv_os_packages:
+        apt: [libjpeg-dev]
+        yum: [libjpeg-devel]
+      virtualenv_pre_packages:
+        - name: Django
+          version: 1.8.18
+        - Pillow
+      virtualenv_requirements:
+        - /var/www/mywebsite_path/requirements.txt
+      virtualenv_post_packages:
+        - name: PIL
+          state: absent

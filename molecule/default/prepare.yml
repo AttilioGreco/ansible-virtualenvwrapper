@@ -5,3 +5,16 @@
   tasks:
   - name: install ansible prerequisite (python)
     raw: test -e /usr/bin/python || ( apt update -y && apt install python-minimal -y )
+
+
+  - name: copy reqirements.txt to container for test
+    file:
+      path: /var/www/mywebsite_path
+      state: directory
+      recurse: yes
+      mode: 0755
+  - name: copy reqirements.txt to container for test
+    copy:
+      src: "{{playbook_dir}}/more/requirements.txt"
+      dest: /var/www/mywebsite_path/requirements.txt
+      mode: 0644

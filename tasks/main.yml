@@ -1,2 +1,29 @@
 ---
-# tasks
+
+- name: install python pip
+  package:
+    name: python-pip
+    state: present
+
+- name: install virtualenv
+  pip:
+    name: virtualenv
+
+- name: install virtualenvwrapper
+  pip:
+    name: virtualenvwrapper
+
+- name: Createte virtualenv Home directory
+  file:
+    path: "{{ venv_venv_home }}"
+    state: directory
+
+- name: add expoter in bashrc
+  lineinfile:
+    path: "{{ bashrc_path }}"
+    line: 'export WORKON_HOME={{ venv_venv_home }}'
+
+- name: add environment to barsh rc for virtualenvwrapper
+  lineinfile:
+    path: "{{ bashrc_path }}"
+    line: 'source {{ virtualenvwrapper_scrpit_path }}'
