@@ -12,7 +12,7 @@ bumpversion==0.5.3
 certifi==2018.1.18        # via requests
 cffi==1.11.4              # via bcrypt, cryptography, pynacl
 chardet==3.0.4            # via requests
-cryptography==2.1.4       # via ansible, paramiko
+cryptography==3.2       # via ansible, paramiko
 docker-py==1.10.6
 docker-pycreds==0.2.1     # via docker-py
 enum34==1.1.6             # via cryptography
