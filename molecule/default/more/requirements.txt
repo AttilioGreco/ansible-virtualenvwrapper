@@ -22,7 +22,7 @@ jinja2==2.10              # via ansible
 markupsafe==1.0           # via jinja2
 paramiko==2.4.0           # via ansible
 pluggy==0.6.0             # via tox
-py==1.5.2                 # via tox
+py==1.10.0                 # via tox
 pyasn1==0.4.2             # via paramiko
 pycparser==2.18           # via cffi
 pynacl==1.2.1             # via paramiko
